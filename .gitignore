@@ -1,0 +1,81 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.env
+.venv
+
+# Testing
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Flask
+instance/
+.webassets-cache
+
+# Scrapy
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE-specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# PIP
+pip-delete-this-directory.txt
+pip-log.txt
+
+# Poetry
+poetry.lock

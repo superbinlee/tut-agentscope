@@ -1,0 +1,23 @@
+[project]
+name = "tut-agentscope"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "libin", email = "xjd.binlee@qq.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "agentscope>=1.0.3",
+]
+
+[project.scripts]
+tut-agentscope = "tut_agentscope:main"
+
+[build-system]
+requires = ["poetry-core>=2,<3"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
