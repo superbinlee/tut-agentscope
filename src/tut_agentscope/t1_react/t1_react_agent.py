@@ -1,5 +1,5 @@
 import asyncio
-
+import agentscope
 from agentscope.agent import ReActAgent, UserAgent
 from agentscope.formatter import (
     DeepSeekChatFormatter,
@@ -11,6 +11,12 @@ from agentscope.tool import Toolkit
 model_name = "deepseek-chat"
 api_key = "sk-bf45e97095c64d8aa0336a7857563493"
 base_url = "https://api.deepseek.com"
+
+agentscope.init(
+    project='tut-agentscope',
+    name='t1_react_agent',
+    studio_url="http://localhost:3000"
+)
 
 agent = ReActAgent(
     name="Friday",
