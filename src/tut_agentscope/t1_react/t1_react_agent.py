@@ -15,7 +15,7 @@ base_url = "https://api.deepseek.com"
 agentscope.init(
     project='tut-agentscope',
     name='t1_react_agent',
-    studio_url="http://localhost:3000"
+    studio_url="http://localhost:8000"
 )
 
 agent = ReActAgent(
