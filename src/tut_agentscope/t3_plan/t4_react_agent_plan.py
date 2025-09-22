@@ -50,12 +50,7 @@ async def main() -> None:
     agent = ReActAgent(
         name="Friday",
         sys_prompt="You are a helpful assistant. Use basic math only, no external tools needed.",
-        model=OpenAIChatModel(
-            api_key=api_key,
-            model_name=model_name,
-            client_args={"base_url": base_url},
-            stream=False,
-        ),
+        model=OpenAIChatModel(api_key=api_key, model_name=model_name, client_args={"base_url": base_url}, stream=False),
         formatter=DeepSeekChatFormatter(),
         plan_notebook=plan_notebook,
         memory=InMemoryMemory(),
