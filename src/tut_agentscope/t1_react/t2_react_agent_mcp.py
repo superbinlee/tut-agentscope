@@ -1,4 +1,5 @@
 import asyncio
+
 import agentscope
 from agentscope.agent import ReActAgent, UserAgent
 from agentscope.formatter import (
@@ -41,16 +42,15 @@ async def main():
         toolkit=Toolkit(),
     )
 
-    async def interact_with_agent() -> None:
-        """Interact with the plan agent."""
-        user = UserAgent(name="user")
+    """Interact with the plan agent."""
+    user = UserAgent(name="user")
 
-        msg = None
-        while True:
-            msg = await user(msg)
-            if msg.get_text_content() == "exit":
-                break
-            msg = await agent(msg)
+    msg = None
+    while True:
+        msg = await user(msg)
+        if msg.get_text_content() == "exit":
+            break
+        msg = await agent(msg)
 
 
 if __name__ == '__main__':
