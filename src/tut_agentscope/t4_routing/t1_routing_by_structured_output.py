@@ -3,17 +3,17 @@ import json
 from typing import Literal
 
 # 导入Agentscope相关组件
-from agentscope.agent import ReActAgent  # 反应式智能体
-from agentscope.formatter import DeepSeekChatFormatter  # DeepSeek聊天格式化器
-from agentscope.memory import InMemoryMemory  # 内存存储
-from agentscope.message import Msg  # 消息类
-from agentscope.model import OpenAIChatModel  # OpenAI兼容的聊天模型
-from pydantic import BaseModel, Field  # 数据验证和设置管理
+from agentscope.agent import ReActAgent
+from agentscope.formatter import DeepSeekChatFormatter
+from agentscope.memory import InMemoryMemory
+from agentscope.message import Msg
+from agentscope.model import OpenAIChatModel
+from pydantic import BaseModel, Field
 
 # 模型配置参数
-model_name = "deepseek-chat"  # 使用的模型名称
-api_key = "sk-bf45e97095c64d8aa0336a7857563493"  # API密钥
-base_url = "https://api.deepseek.com"  # API基础URL
+model_name = "deepseek-chat"
+api_key = "sk-bf45e97095c64d8aa0336a7857563493"
+base_url = "https://api.deepseek.com"
 
 
 class RoutingChoice(BaseModel):
@@ -37,16 +37,16 @@ async def main() -> None:
     """
     # 创建路由智能体
     router_agent = ReActAgent(
-        name="Router",  # 智能体名称
-        sys_prompt="You're a routing agent. Your target is to route the user query to the right follow-up task.",  # 系统提示
+        name="Router",
+        sys_prompt="You're a routing agent. Your target is to route the user query to the right follow-up task.",
         model=OpenAIChatModel(
             api_key=api_key,
             model_name=model_name,
             client_args={"base_url": base_url},
             stream=False
-        ),  # 配置模型
-        formatter=DeepSeekChatFormatter(),  # 格式化器
-        memory=InMemoryMemory(),  # 内存存储
+        ),
+        formatter=DeepSeekChatFormatter(),
+        memory=InMemoryMemory(),
     )
 
     # 创建用户消息，要求写一首古代风格的诗

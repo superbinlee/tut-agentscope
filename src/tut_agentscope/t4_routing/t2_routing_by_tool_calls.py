@@ -1,17 +1,16 @@
 import asyncio
 
-# 导入Agentscope相关组件
-from agentscope.agent import ReActAgent  # 反应式智能体
-from agentscope.formatter import DeepSeekChatFormatter  # DeepSeek聊天格式化器
-from agentscope.memory import InMemoryMemory  # 内存存储
-from agentscope.message import Msg  # 消息类
-from agentscope.model import OpenAIChatModel  # OpenAI兼容的聊天模型
+from agentscope.agent import ReActAgent
+from agentscope.formatter import DeepSeekChatFormatter
+from agentscope.memory import InMemoryMemory
+from agentscope.message import Msg
+from agentscope.model import OpenAIChatModel
 from agentscope.tool import Toolkit, ToolResponse
 
 # 模型配置参数
-model_name = "deepseek-chat"  # 使用的模型名称
-api_key = "sk-bf45e97095c64d8aa0336a7857563493"  # API密钥
-base_url = "https://api.deepseek.com"  # API基础URL
+model_name = "deepseek-chat"
+api_key = "sk-bf45e97095c64d8aa0336a7857563493"
+base_url = "https://api.deepseek.com"
 
 
 async def generate_python(demand: str) -> ToolResponse:
@@ -25,7 +24,7 @@ async def generate_python(demand: str) -> ToolResponse:
     python_agent = ReActAgent(
         name="PythonAgent",
         sys_prompt="You're a Python expert, your target is to generate Python code based on the demand.",
-        model=OpenAIChatModel(api_key=api_key, model_name=model_name, client_args={"base_url": base_url}, stream=False),  # 配置模型
+        model=OpenAIChatModel(api_key=api_key, model_name=model_name, client_args={"base_url": base_url}, stream=False),
         formatter=DeepSeekChatFormatter(),  # 格式化器
         memory=InMemoryMemory(),  # 内存存储
     )

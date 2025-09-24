@@ -2,9 +2,7 @@ import asyncio
 
 import agentscope
 from agentscope.agent import ReActAgent, UserAgent
-from agentscope.formatter import (
-    DeepSeekChatFormatter,
-)
+from agentscope.formatter import DeepSeekChatFormatter
 from agentscope.mcp import HttpStatefulClient, HttpStatelessClient
 from agentscope.memory import InMemoryMemory
 from agentscope.model import OpenAIChatModel
@@ -16,11 +14,7 @@ base_url = "https://api.deepseek.com"
 
 
 async def main():
-    agentscope.init(
-        project='tut-agentscope',
-        name='t1_react_agent',
-        studio_url="http://localhost:8000"
-    )
+    agentscope.init(project='tut-agentscope', name='t1_react_agent', studio_url="http://localhost:8000")
 
     toolkit = Toolkit()
 
