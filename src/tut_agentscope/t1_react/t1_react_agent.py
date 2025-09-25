@@ -1,9 +1,7 @@
 import asyncio
 import agentscope
 from agentscope.agent import ReActAgent, UserAgent
-from agentscope.formatter import (
-    DeepSeekChatFormatter,
-)
+from agentscope.formatter import DeepSeekChatFormatter
 from agentscope.memory import InMemoryMemory
 from agentscope.model import OpenAIChatModel
 from agentscope.tool import Toolkit
