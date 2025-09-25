@@ -2,7 +2,6 @@ import asyncio
 import json
 from typing import Literal
 
-# 导入Agentscope相关组件
 from agentscope.agent import ReActAgent
 from agentscope.formatter import DeepSeekChatFormatter
 from agentscope.memory import InMemoryMemory
@@ -21,13 +20,8 @@ class RoutingChoice(BaseModel):
     路由选择模型，用于定义智能体可以选择的后续任务类型。
     基于Pydantic模型，提供结构化输出验证。
     """
-    your_choice: Literal["Content Generation", "Programming", "Information Retrieval", None,] = Field(
-        description="选择适当的后续任务类型，如果任务太简单或没有合适的任务类型则选择``None``",
-    )
-    task_description: str | None = Field(
-        description="任务描述",
-        default=None,
-    )
+    your_choice: Literal["Content Generation", "Programming", "Information Retrieval", None,] = Field(description="选择适当的后续任务类型，如果任务太简单或没有合适的任务类型则选择``None``")
+    task_description: str | None = Field(description="任务描述", default=None)
 
 
 async def main() -> None:
@@ -39,12 +33,7 @@ async def main() -> None:
     router_agent = ReActAgent(
         name="Router",
         sys_prompt="You're a routing agent. Your target is to route the user query to the right follow-up task.",
-        model=OpenAIChatModel(
-            api_key=api_key,
-            model_name=model_name,
-            client_args={"base_url": base_url},
-            stream=False
-        ),
+        model=OpenAIChatModel(api_key=api_key, model_name=model_name, client_args={"base_url": base_url}, stream=False),
         formatter=DeepSeekChatFormatter(),
         memory=InMemoryMemory(),
     )

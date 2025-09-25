@@ -32,7 +32,6 @@ async def generate_python(demand: str) -> ToolResponse:
     return ToolResponse(content=msg_res.get_content_blocks("text"), )
 
 
-# Fake some other tool functions for demonstration purposes
 async def generate_poem(demand: str) -> ToolResponse:
     """Generate a poem based on the demand.
 
