@@ -9,6 +9,11 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "agentscope>=1.0.3",
+    "fastmcp>=2.12.3",
+    "loguru>=0.7.3",
+    "pymilvus[miluvs-lite]>=2.6.2",
+    "sentence-transformers>=5.1.1",
+    "twine>=6.2.0",
 ]
 
 [project.scripts]
